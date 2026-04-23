@@ -12,12 +12,7 @@ app.use((req, res, next) => {
     }
     next();
 });
-app.use(cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
-app.options('*', cors());
+app.use(cors());
 app.use(express.json());
 
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
